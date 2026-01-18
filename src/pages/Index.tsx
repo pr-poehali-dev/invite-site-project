@@ -120,10 +120,19 @@ const Index = () => {
           <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
             <CardContent className="p-12 text-center">
               <div className="mb-6 text-6xl">💌</div>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
                 Дорогие наши друзья и родные! Это официальное приглашение на нашу свадьбу! 
                 А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!
               </p>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+                Узнали этих малышей? Время пролетело незаметно. И вот наступил момент, когда наши детские мечты стали реальностью. 
+                Разделите с нами это главное событие лета - подарите нам своё внимание и поддержку!
+              </p>
+              <img 
+                src="https://cdn.poehali.dev/files/Мы.jpg"
+                alt="Елизавета и Павел"
+                className="w-full max-w-md mx-auto rounded-2xl shadow-xl object-cover"
+              />
             </CardContent>
           </Card>
         </div>
