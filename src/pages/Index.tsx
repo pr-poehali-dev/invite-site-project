@@ -109,6 +109,9 @@ const Index = () => {
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-light mb-4 text-primary opacity-0 h-0 overflow-hidden">Елизавета & Павел</h1>
+          <p className="text-xl md:text-2xl font-medium text-primary mb-2">
+            От детской мечты к реальности
+          </p>
           <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-8">
             Приглашают вас на торжество
           </p>
@@ -152,8 +155,11 @@ const Index = () => {
 
           <Card className={`bg-white/80 backdrop-blur border-primary/20 mb-8 transition-all duration-700 delay-200 ${visibleSections.has('invitation') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <CardContent className="p-12 text-center">
+              <p className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                Узнали этих малышей?
+              </p>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
-                Узнали этих малышей? Время пролетело незаметно. И вот наступил момент, когда наши детские мечты стали реальностью. 
+                Время пролетело незаметно. И вот наступил момент, когда наши детские мечты стали реальностью. 
                 Разделите с нами это главное событие лета - подарите нам своё внимание и поддержку!
               </p>
               <img 
