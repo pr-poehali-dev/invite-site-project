@@ -47,7 +47,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-center gap-6 flex-wrap">
-            {['hero', 'invitation', 'program', 'gifts', 'gallery', 'contacts'].map((section) => (
+            {['hero', 'invitation', 'dresscode', 'program', 'gifts', 'gallery', 'contacts'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -55,6 +55,7 @@ const Index = () => {
               >
                 {section === 'hero' && 'Главная'}
                 {section === 'invitation' && 'Приглашение'}
+                {section === 'dresscode' && 'Дресс-код'}
                 {section === 'program' && 'Программа'}
                 {section === 'gifts' && 'Подарки'}
                 {section === 'gallery' && 'Галерея'}
@@ -125,6 +126,91 @@ const Index = () => {
               </p>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section id="dresscode" className="py-24 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Дресс-код</h2>
+            <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
+          </div>
+
+          <Card className="bg-white/80 backdrop-blur border-primary/20 mb-12 animate-fade-in">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-2xl font-medium mb-6">Цветовая палитра</h3>
+              <p className="text-lg text-muted-foreground mb-6">
+                Будем рады видеть вас в нарядах оливковых, бежевых, кремовых и белых оттенков
+              </p>
+              <div className="flex justify-center gap-4 flex-wrap">
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-full mx-auto mb-2" style={{ backgroundColor: '#8B9168' }}></div>
+                  <p className="text-sm text-muted-foreground">Оливковый</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-full mx-auto mb-2" style={{ backgroundColor: '#D4C5B0' }}></div>
+                  <p className="text-sm text-muted-foreground">Бежевый</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-full mx-auto mb-2" style={{ backgroundColor: '#F5F1E8' }}></div>
+                  <p className="text-sm text-muted-foreground">Кремовый</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-full border-2 border-muted mx-auto mb-2" style={{ backgroundColor: '#FFFFFF' }}></div>
+                  <p className="text-sm text-muted-foreground">Белый</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-medium mb-4 text-center">Для мужчин</h3>
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <img 
+                    src="https://cdn.poehali.dev/files/ом1.jpg"
+                    alt="Мужской образ 1"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                  <img 
+                    src="https://cdn.poehali.dev/files/ом2.jpg"
+                    alt="Мужской образ 2"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                  <img 
+                    src="https://cdn.poehali.dev/files/ом3.jpg"
+                    alt="Мужской образ 3"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                  <img 
+                    src="https://cdn.poehali.dev/files/ом4.jpg"
+                    alt="Мужской образ 4"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                </div>
+                <img 
+                  src="https://cdn.poehali.dev/files/образы м.jpg"
+                  alt="Мужские образы"
+                  className="w-full aspect-[3/4] object-cover rounded-lg"
+                />
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-medium mb-4 text-center">Для женщин</h3>
+                <div className="space-y-4">
+                  <p className="text-muted-foreground text-center">
+                    Изящные платья в пастельных тонах, лёгкие ткани, романтичные силуэты
+                  </p>
+                  <div className="h-96 bg-muted/30 rounded-lg flex items-center justify-center">
+                    <Icon name="Sparkles" size={48} className="text-primary/40" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
