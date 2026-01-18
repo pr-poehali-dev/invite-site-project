@@ -117,22 +117,27 @@ const Index = () => {
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
-          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in mb-8">
             <CardContent className="p-12 text-center">
-              <div className="mb-6 text-6xl">💌</div>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-                Дорогие наши друзья и родные! Это официальное приглашение на нашу свадьбу! 
-                А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!
-              </p>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
                 Узнали этих малышей? Время пролетело незаметно. И вот наступил момент, когда наши детские мечты стали реальностью. 
                 Разделите с нами это главное событие лета - подарите нам своё внимание и поддержку!
               </p>
               <img 
                 src="https://cdn.poehali.dev/files/Мы.jpg"
                 alt="Елизавета и Павел"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-xl object-cover"
+                className="w-48 h-48 md:w-64 md:h-64 mx-auto rounded-2xl shadow-xl object-cover"
               />
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+            <CardContent className="p-12 text-center">
+              <div className="mb-6 text-6xl">💌</div>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                Дорогие наши друзья и родные! Это официальное приглашение на нашу свадьбу! 
+                А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!
+              </p>
             </CardContent>
           </Card>
         </div>
