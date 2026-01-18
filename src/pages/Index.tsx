@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const weddingDate = new Date('2026-08-15T15:00:00');
+  const weddingDate = new Date('2026-08-06T12:15:00');
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   function calculateTimeLeft() {
@@ -74,7 +74,7 @@ const Index = () => {
           </p>
           <div className="flex items-center justify-center gap-2 text-xl mb-12">
             <Icon name="Calendar" size={24} className="text-primary" />
-            <span className="font-medium">15 августа 2026 • 15:00</span>
+            <span className="font-medium">6 августа 2026 • 12:15</span>
           </div>
 
           <div className="grid grid-cols-4 gap-4 max-w-md mx-auto mb-12">
@@ -301,7 +301,7 @@ const Index = () => {
             С любовью, Елизавета и Павел
           </p>
           <p className="text-sm text-muted-foreground">
-            15 августа 2026 • До встречи!
+            6 августа 2026 • До встречи!
           </p>
         </div>
       </footer>
