@@ -156,10 +156,7 @@ const InfoSections = ({ visibleSections }: InfoSectionsProps) => {
             <CardContent className="p-8 text-center">
               <div className="mb-6 text-6xl">🎁</div>
               <h3 className="text-2xl font-medium mb-4">Ваше присутствие - лучший подарок!</h3>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                Но если вы хотите нас порадовать, мы будем благодарны за вклад в наше свадебное путешествие 
-                или небольшую помощь в обустройстве нашего семейного гнездышка.
-              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">Но если вы хотите нас порадовать, мы будем благодарны за вклад в наше свадебное путешествие или небольшую помощь в появление нашего семейного гнездышка.</p>
               
               <div className="space-y-4 max-w-md mx-auto">
                 <div className="p-4 bg-muted/50 rounded-lg">
