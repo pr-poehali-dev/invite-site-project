@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "Test RSVP submission with attendance",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "attendance": "yes",
+        "guests": "2",
+        "alcohol": ["Вино белое", "Шампанское"],
+        "alcoholPriority": ["Вино белое:1", "Шампанское:2"],
+        "message": "С удовольствием приедем!"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test RSVP submission decline",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Мария Петрова",
+        "attendance": "no",
+        "message": "К сожалению, не смогу приехать"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

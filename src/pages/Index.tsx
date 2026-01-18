@@ -93,11 +93,31 @@ const Index = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 3000);
+    
+    try {
+      const response = await fetch('https://functions.poehali.dev/5fffadb7-d741-406f-be76-25b42a5a2f60', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setFormSubmitted(true);
+        setTimeout(() => setFormSubmitted(false), 3000);
+      } else {
+        console.error('Error submitting form:', data);
+        alert('Ошибка при отправке формы. Попробуйте позже.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Ошибка при отправке формы. Попробуйте позже.');
+    }
   };
 
 
