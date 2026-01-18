@@ -200,14 +200,33 @@ const Index = () => {
             <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
               <CardContent className="p-6">
                 <h3 className="text-2xl font-medium mb-4 text-center">Для женщин</h3>
-                <div className="space-y-4">
-                  <p className="text-muted-foreground text-center">
-                    Изящные платья в пастельных тонах, лёгкие ткани, романтичные силуэты
-                  </p>
-                  <div className="h-96 bg-muted/30 rounded-lg flex items-center justify-center">
-                    <Icon name="Sparkles" size={48} className="text-primary/40" />
-                  </div>
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <img 
+                    src="https://cdn.poehali.dev/files/ож2.jpg"
+                    alt="Женский образ 1"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                  <img 
+                    src="https://cdn.poehali.dev/files/ож3.jpg"
+                    alt="Женский образ 2"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                  <img 
+                    src="https://cdn.poehali.dev/files/ож4.jpg"
+                    alt="Женский образ 3"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
+                  <img 
+                    src="https://cdn.poehali.dev/files/ож5.jpg"
+                    alt="Женский образ 4"
+                    className="w-full aspect-[3/4] object-cover rounded-lg"
+                  />
                 </div>
+                <img 
+                  src="https://cdn.poehali.dev/files/образы.jpg"
+                  alt="Женские образы"
+                  className="w-full aspect-[3/4] object-cover rounded-lg"
+                />
               </CardContent>
             </Card>
           </div>
