@@ -12,9 +12,7 @@ const HeroSection = ({ timeLeft, scrollToSection }: HeroSectionProps) => {
     <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="text-center animate-fade-in">
         <div className="flex items-center justify-center gap-8 md:gap-16 mb-8">
-          <div className="text-center relative">
-            <div className="absolute -top-2 -left-2 text-2xl md:text-3xl animate-pulse">🌸</div>
-            <div className="absolute -bottom-2 -right-2 text-2xl md:text-3xl animate-pulse" style={{ animationDelay: '0.5s' }}>💕</div>
+          <div className="text-center">
             <img 
               src="https://cdn.poehali.dev/files/Лиза.jpg"
               alt="Елизавета"
@@ -22,14 +20,10 @@ const HeroSection = ({ timeLeft, scrollToSection }: HeroSectionProps) => {
             />
             <h2 className="text-3xl md:text-5xl font-light text-primary">Елизавета</h2>
           </div>
-          <div className="text-4xl md:text-6xl font-light text-primary flex flex-col items-center gap-2">
-            <div className="text-2xl md:text-3xl">💐</div>
-            <div>&</div>
-            <div className="text-2xl md:text-3xl">💍</div>
+          <div className="text-4xl md:text-6xl font-light text-primary">
+            &
           </div>
-          <div className="text-center relative">
-            <div className="absolute -top-2 -right-2 text-2xl md:text-3xl animate-pulse" style={{ animationDelay: '0.3s' }}>🌸</div>
-            <div className="absolute -bottom-2 -left-2 text-2xl md:text-3xl animate-pulse" style={{ animationDelay: '0.7s' }}>💕</div>
+          <div className="text-center">
             <img 
               src="https://cdn.poehali.dev/files/Паша 2.jpg"
               alt="Павел"
