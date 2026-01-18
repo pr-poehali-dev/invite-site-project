@@ -47,14 +47,14 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-center gap-6 flex-wrap">
-            {['hero', 'about', 'program', 'gifts', 'gallery', 'contacts'].map((section) => (
+            {['hero', 'invitation', 'program', 'gifts', 'gallery', 'contacts'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
               >
                 {section === 'hero' && 'Главная'}
-                {section === 'about' && 'О паре'}
+                {section === 'invitation' && 'Приглашение'}
                 {section === 'program' && 'Программа'}
                 {section === 'gifts' && 'Подарки'}
                 {section === 'gallery' && 'Галерея'}
@@ -96,56 +96,29 @@ const Index = () => {
           <Button 
             size="lg" 
             className="text-lg px-8 py-6 rounded-full bg-primary hover:bg-primary/90"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection('invitation')}
           >
             Узнать больше
           </Button>
         </div>
       </section>
 
-      <section id="about" className="py-24 px-4">
+      <section id="invitation" className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Наша история</h2>
+            <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Дорогие гости!</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <img 
-                src="https://cdn.poehali.dev/projects/815cbadf-2537-4302-b45f-a54b8c125829/files/3d06be8e-5ca3-4618-9bb5-9cae487e9b91.jpg"
-                alt="Couple"
-                className="rounded-2xl shadow-2xl w-full aspect-square object-cover"
-              />
-            </div>
-            <div className="space-y-6 animate-fade-in">
-              <Card className="bg-white/60 backdrop-blur border-primary/20">
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-medium mb-3 flex items-center gap-2">
-                    <Icon name="Heart" size={24} className="text-primary" />
-                    Первая встреча
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Мы встретились весной 2020 года в кофейне, где случайно заказали одинаковые напитки. 
-                    Это было началом нашей волшебной истории любви.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/60 backdrop-blur border-primary/20">
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-medium mb-3 flex items-center gap-2">
-                    <Icon name="Sparkles" size={24} className="text-primary" />
-                    Предложение
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    На закате в парке, где мы провели наше первое свидание, Павел сделал предложение. 
-                    Конечно, Елизавета сказала "Да!"
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+            <CardContent className="p-12 text-center">
+              <div className="mb-6 text-6xl">💌</div>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                Дорогие наши друзья и родные! Это официальное приглашение на нашу свадьбу! 
+                А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
