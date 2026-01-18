@@ -156,18 +156,7 @@ const InfoSections = ({ visibleSections }: InfoSectionsProps) => {
             <CardContent className="p-8 text-center">
               <div className="mb-6 text-6xl">🎁</div>
               <h3 className="text-2xl font-medium mb-4">Ваше присутствие - лучший подарок!</h3>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">Но если вы хотите нас порадовать, мы будем благодарны за вклад в наше свадебное путешествие или небольшую помощь в появление нашего семейного гнездышка.</p>
-              
-              <div className="space-y-4 max-w-md mx-auto">
-                <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-medium mb-2">Банковская карта</div>
-                  <div className="text-sm text-muted-foreground">2200 7000 1234 5678</div>
-                </div>
-                <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-medium mb-2">СБП</div>
-                  <div className="text-sm text-muted-foreground">+7 (900) 123-45-67</div>
-                </div>
-              </div>
+              <p className="text-muted-foreground text-lg leading-relaxed">Но если вы хотите нас порадовать, мы будем благодарны за вклад в наше свадебное путешествие или небольшую помощь в обустройстве нашего семейного гнездышка.</p>
             </CardContent>
           </Card>
         </div>
@@ -184,50 +173,23 @@ const InfoSections = ({ visibleSections }: InfoSectionsProps) => {
             <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-200 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <CardContent className="p-8">
                 <Icon name="MapPin" size={32} className="text-primary mb-4" />
-                <h3 className="text-2xl font-medium mb-3">Место проведения</h3>
+                <h3 className="text-2xl font-medium mb-3">ЗАГС</h3>
                 <p className="text-muted-foreground mb-4">
-                  Банкетный зал "Романтика"<br />
-                  ул. Садовая, 15<br />
-                  Москва, 101000
+                  Карла Либкнехта, 3
                 </p>
-                <Button variant="outline" className="w-full">
-                  <Icon name="Navigation" size={18} className="mr-2" />
-                  Построить маршрут
-                </Button>
               </CardContent>
             </Card>
 
             <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-500 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <CardContent className="p-8">
-                <Icon name="Users" size={32} className="text-primary mb-4" />
-                <h3 className="text-2xl font-medium mb-3">Контакты организаторов</h3>
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Icon name="Phone" size={18} />
-                    <span>+7 (900) 123-45-67</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Icon name="Mail" size={18} />
-                    <span>wedding@example.com</span>
-                  </div>
-                </div>
-                <Button variant="outline" className="w-full">
-                  <Icon name="MessageCircle" size={18} className="mr-2" />
-                  Написать в WhatsApp
-                </Button>
+                <Icon name="MapPin" size={32} className="text-primary mb-4" />
+                <h3 className="text-2xl font-medium mb-3">Банкет</h3>
+                <p className="text-muted-foreground mb-4">
+                  Ленина, 49
+                </p>
               </CardContent>
             </Card>
           </div>
-
-          <Card className={`mt-8 bg-primary/10 backdrop-blur border-primary/30 transition-all duration-700 delay-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-medium mb-3">Дресс-код</h3>
-              <p className="text-muted-foreground text-lg">
-                Мы будем рады видеть вас в нарядах пастельных оттенков: 
-                розовый, лавандовый, персиковый, кремовый
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </section>
     </>
