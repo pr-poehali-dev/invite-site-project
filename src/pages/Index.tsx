@@ -13,6 +13,7 @@ const Index = () => {
     attendance: '',
     guests: '1',
     alcohol: [] as string[],
+    alcoholPriority: [] as string[],
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -75,6 +76,21 @@ const Index = () => {
     }));
   };
 
+  const handlePriorityChange = (drink: string, priority: string) => {
+    setFormData(prev => {
+      const newPriority = [...prev.alcoholPriority];
+      const index = newPriority.findIndex(item => item.startsWith(drink + ':'));
+      
+      if (index !== -1) {
+        newPriority[index] = `${drink}:${priority}`;
+      } else {
+        newPriority.push(`${drink}:${priority}`);
+      }
+      
+      return { ...prev, alcoholPriority: newPriority };
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
@@ -121,6 +137,7 @@ const Index = () => {
         setFormData={setFormData}
         formSubmitted={formSubmitted}
         handleAlcoholToggle={handleAlcoholToggle}
+        handlePriorityChange={handlePriorityChange}
         handleSubmit={handleSubmit}
       />
       <InfoSections visibleSections={visibleSections} galleryImages={galleryImages} />

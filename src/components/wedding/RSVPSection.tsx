@@ -8,6 +8,7 @@ interface RSVPSectionProps {
     attendance: string;
     guests: string;
     alcohol: string[];
+    alcoholPriority: string[];
     message: string;
   };
   setFormData: React.Dispatch<React.SetStateAction<{
@@ -15,10 +16,12 @@ interface RSVPSectionProps {
     attendance: string;
     guests: string;
     alcohol: string[];
+    alcoholPriority: string[];
     message: string;
   }>>;
   formSubmitted: boolean;
   handleAlcoholToggle: (drink: string) => void;
+  handlePriorityChange: (drink: string, priority: string) => void;
   handleSubmit: (e: React.FormEvent) => void;
 }
 
@@ -27,9 +30,14 @@ const RSVPSection = ({
   formData, 
   setFormData, 
   formSubmitted, 
-  handleAlcoholToggle, 
+  handleAlcoholToggle,
+  handlePriorityChange, 
   handleSubmit 
 }: RSVPSectionProps) => {
+  const getPriority = (drink: string) => {
+    const item = formData.alcoholPriority.find(p => p.startsWith(drink + ':'));
+    return item ? item.split(':')[1] : '';
+  };
   return (
     <section id="rsvp" className="py-24 px-4 bg-secondary/20">
       <div className="container mx-auto max-w-2xl">
@@ -118,6 +126,32 @@ const RSVPSection = ({
                             />
                             <span className="text-sm">{drink}</span>
                           </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-3">Приоритет напитков</label>
+                      <p className="text-xs text-muted-foreground mb-3">Укажите приоритет от 1 (самый важный) до 7</p>
+                      <div className="space-y-3">
+                        {['Вино белое', 'Вино красное', 'Шампанское', 'Водка', 'Виски', 'Ром', 'Джин'].map((drink) => (
+                          <div key={drink} className="flex items-center gap-3">
+                            <span className="text-sm flex-1">{drink}</span>
+                            <select
+                              value={getPriority(drink)}
+                              onChange={(e) => handlePriorityChange(drink, e.target.value)}
+                              className="px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-ring w-24"
+                            >
+                              <option value="">-</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                            </select>
+                          </div>
                         ))}
                       </div>
                     </div>
