@@ -68,7 +68,7 @@ const Index = () => {
       <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4">
         <div className="text-center animate-fade-in">
           <div className="mb-6 text-6xl">💐</div>
-          <h1 className="text-6xl md:text-8xl font-light mb-4 text-primary">Анна & Дмитрий</h1>
+          <h1 className="text-6xl md:text-8xl font-light mb-4 text-primary">Елизавета & Павел</h1>
           <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-8">
             Приглашают вас на торжество
           </p>
@@ -139,8 +139,8 @@ const Index = () => {
                     Предложение
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    На закате в парке, где мы провели наше первое свидание, Дмитрий сделал предложение. 
-                    Конечно, Анна сказала "Да!"
+                    На закате в парке, где мы провели наше первое свидание, Павел сделал предложение. 
+                    Конечно, Елизавета сказала "Да!"
                   </p>
                 </CardContent>
               </Card>
@@ -298,7 +298,7 @@ const Index = () => {
       <footer className="py-12 px-4 bg-primary/5 text-center">
         <div className="container mx-auto">
           <p className="text-muted-foreground mb-2">
-            С любовью, Анна и Дмитрий
+            С любовью, Елизавета и Павел
           </p>
           <p className="text-sm text-muted-foreground">
             15 августа 2026 • До встречи!
