@@ -98,18 +98,14 @@ const Index = () => {
     setTimeout(() => setFormSubmitted(false), 3000);
   };
 
-  const galleryImages = [
-    'https://cdn.poehali.dev/projects/815cbadf-2537-4302-b45f-a54b8c125829/files/3d06be8e-5ca3-4618-9bb5-9cae487e9b91.jpg',
-    'https://cdn.poehali.dev/projects/815cbadf-2537-4302-b45f-a54b8c125829/files/310c3a5b-07e0-4dd5-b056-c79da837aeea.jpg',
-    'https://cdn.poehali.dev/projects/815cbadf-2537-4302-b45f-a54b8c125829/files/5b1c5ddd-2017-453d-a10a-03b2f8a2f5c8.jpg',
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-secondary/20 to-muted/30">
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-center gap-6 flex-wrap">
-            {['hero', 'invitation', 'rsvp', 'dresscode', 'program', 'gifts', 'gallery', 'contacts'].map((section) => (
+            {['hero', 'invitation', 'rsvp', 'dresscode', 'program', 'gifts', 'contacts'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -121,7 +117,6 @@ const Index = () => {
                 {section === 'dresscode' && 'Дресс-код'}
                 {section === 'program' && 'Программа'}
                 {section === 'gifts' && 'Подарки'}
-                {section === 'gallery' && 'Галерея'}
                 {section === 'contacts' && 'Контакты'}
               </button>
             ))}
@@ -140,7 +135,7 @@ const Index = () => {
         handlePriorityChange={handlePriorityChange}
         handleSubmit={handleSubmit}
       />
-      <InfoSections visibleSections={visibleSections} galleryImages={galleryImages} />
+      <InfoSections visibleSections={visibleSections} />
 
       <footer className="py-12 px-4 bg-primary/5 text-center">
         <div className="container mx-auto">

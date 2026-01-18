@@ -4,10 +4,9 @@ import Icon from '@/components/ui/icon';
 
 interface InfoSectionsProps {
   visibleSections: Set<string>;
-  galleryImages: string[];
 }
 
-const InfoSections = ({ visibleSections, galleryImages }: InfoSectionsProps) => {
+const InfoSections = ({ visibleSections }: InfoSectionsProps) => {
   return (
     <>
       <section id="dresscode" className="py-24 px-4">
@@ -177,32 +176,7 @@ const InfoSections = ({ visibleSections, galleryImages }: InfoSectionsProps) => 
         </div>
       </section>
 
-      <section id="gallery" className="py-24 px-4 bg-secondary/20">
-        <div className="container mx-auto max-w-6xl">
-          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('gallery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Наша галерея</h2>
-            <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {galleryImages.map((img, index) => (
-              <div 
-                key={index} 
-                className={`hover-scale rounded-2xl overflow-hidden shadow-lg transition-all duration-700 ${visibleSections.has('gallery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <img 
-                  src={img}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full aspect-square object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contacts" className="py-24 px-4">
+      <section id="contacts" className="py-24 px-4 bg-secondary/20">
         <div className="container mx-auto max-w-4xl">
           <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Детали события</h2>
