@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const weddingDate = new Date('2026-08-06T12:15:00');
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
   function calculateTimeLeft() {
     const difference = +weddingDate - +new Date();
@@ -30,6 +31,26 @@ const Index = () => {
 
     return () => clearTimeout(timer);
   });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -112,12 +133,12 @@ const Index = () => {
 
       <section id="invitation" className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('invitation') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Дорогие гости!</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
-          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in mb-8">
+          <Card className={`bg-white/80 backdrop-blur border-primary/20 mb-8 transition-all duration-700 delay-200 ${visibleSections.has('invitation') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <CardContent className="p-12 text-center">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
                 Узнали этих малышей? Время пролетело незаметно. И вот наступил момент, когда наши детские мечты стали реальностью. 
@@ -131,7 +152,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+          <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-500 ${visibleSections.has('invitation') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <CardContent className="p-12 text-center">
               <div className="mb-6 text-6xl">💌</div>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
@@ -145,12 +166,12 @@ const Index = () => {
 
       <section id="dresscode" className="py-24 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('dresscode') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Дресс-код</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
-          <Card className="bg-white/80 backdrop-blur border-primary/20 mb-12 animate-fade-in">
+          <Card className={`bg-white/80 backdrop-blur border-primary/20 mb-12 transition-all duration-700 delay-200 ${visibleSections.has('dresscode') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-medium mb-6">Цветовая палитра</h3>
               <p className="text-lg text-muted-foreground mb-6">
@@ -211,7 +232,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+            <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-700 ${visibleSections.has('dresscode') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-medium mb-4 text-center">Для женщин</h3>
                 <div className="grid grid-cols-2 gap-4 mb-4">
@@ -249,7 +270,7 @@ const Index = () => {
 
       <section id="program" className="py-24 px-4 bg-secondary/20">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('program') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Программа торжества</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
@@ -262,7 +283,7 @@ const Index = () => {
               { time: '16:30', title: 'Банкет', icon: 'Utensils', desc: 'Праздничный ужин с развлечениями' },
               { time: '23:00', title: 'Завершение вечера', icon: 'Moon', desc: 'Прощание и благодарность' },
             ].map((item, index) => (
-              <Card key={index} className="bg-white/80 backdrop-blur border-primary/20 hover:shadow-lg transition-shadow animate-fade-in">
+              <Card key={index} className={`bg-white/80 backdrop-blur border-primary/20 hover:shadow-lg transition-all duration-700 ${visibleSections.has('program') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6 flex items-center gap-6">
                   <div className="flex-shrink-0 w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
                     <Icon name={item.icon} size={32} className="text-primary" />
@@ -281,12 +302,12 @@ const Index = () => {
 
       <section id="gifts" className="py-24 px-4">
         <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('gifts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Реестр подарков</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
-          <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+          <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-200 ${visibleSections.has('gifts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <CardContent className="p-8 text-center">
               <div className="mb-6 text-6xl">🎁</div>
               <h3 className="text-2xl font-medium mb-4">Ваше присутствие - лучший подарок!</h3>
@@ -312,7 +333,7 @@ const Index = () => {
 
       <section id="gallery" className="py-24 px-4 bg-secondary/20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('gallery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Наша галерея</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
@@ -321,8 +342,8 @@ const Index = () => {
             {galleryImages.map((img, index) => (
               <div 
                 key={index} 
-                className="animate-fade-in hover-scale rounded-2xl overflow-hidden shadow-lg"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`hover-scale rounded-2xl overflow-hidden shadow-lg transition-all duration-700 ${visibleSections.has('gallery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <img 
                   src={img}
@@ -337,13 +358,13 @@ const Index = () => {
 
       <section id="contacts" className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl md:text-6xl font-light mb-4 text-primary">Детали события</h2>
             <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+            <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-200 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <CardContent className="p-8">
                 <Icon name="MapPin" size={32} className="text-primary mb-4" />
                 <h3 className="text-2xl font-medium mb-3">Место проведения</h3>
@@ -359,7 +380,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-white/80 backdrop-blur border-primary/20 animate-fade-in">
+            <Card className={`bg-white/80 backdrop-blur border-primary/20 transition-all duration-700 delay-500 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <CardContent className="p-8">
                 <Icon name="Users" size={32} className="text-primary mb-4" />
                 <h3 className="text-2xl font-medium mb-3">Контакты организаторов</h3>
@@ -381,7 +402,7 @@ const Index = () => {
             </Card>
           </div>
 
-          <Card className="mt-8 bg-primary/10 backdrop-blur border-primary/30 animate-fade-in">
+          <Card className={`mt-8 bg-primary/10 backdrop-blur border-primary/30 transition-all duration-700 delay-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-medium mb-3">Дресс-код</h3>
               <p className="text-muted-foreground text-lg">
