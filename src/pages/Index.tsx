@@ -67,7 +67,13 @@ const Index = () => {
 
       <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4">
         <div className="text-center animate-fade-in">
-          <div className="mb-6 text-6xl">💐</div>
+          <div className="mb-8">
+            <img 
+              src="https://cdn.poehali.dev/files/Мы.jpg"
+              alt="Елизавета и Павел"
+              className="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-3xl shadow-2xl object-cover border-4 border-white/50"
+            />
+          </div>
           <h1 className="text-6xl md:text-8xl font-light mb-4 text-primary">Елизавета & Павел</h1>
           <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-8">
             Приглашают вас на торжество
