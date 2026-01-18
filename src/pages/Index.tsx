@@ -137,11 +137,11 @@ const Index = () => {
 
           <div className="space-y-6">
             {[
-              { time: '15:00', title: 'Встреча гостей', icon: 'Users', desc: 'Регистрация и приветственные напитки' },
-              { time: '16:00', title: 'Церемония', icon: 'Heart', desc: 'Торжественная регистрация брака' },
-              { time: '17:00', title: 'Фуршет', icon: 'Wine', desc: 'Легкие закуски и шампанское' },
-              { time: '18:00', title: 'Банкет', icon: 'Utensils', desc: 'Праздничный ужин с развлечениями' },
-              { time: '21:00', title: 'Танцы', icon: 'Music', desc: 'Дискотека и веселье до утра' },
+              { time: '11:40', title: 'Сбор гостей', icon: 'Users', desc: 'Встреча и приветствие гостей' },
+              { time: '12:15', title: 'Церемония регистрации', icon: 'Heart', desc: 'Торжественная регистрация брака' },
+              { time: '16:00', title: 'Фуршет', icon: 'Wine', desc: 'Легкие закуски и шампанское' },
+              { time: '16:30', title: 'Банкет', icon: 'Utensils', desc: 'Праздничный ужин с развлечениями' },
+              { time: '23:00', title: 'Завершение вечера', icon: 'Moon', desc: 'Прощание и благодарность' },
             ].map((item, index) => (
               <Card key={index} className="bg-white/80 backdrop-blur border-primary/20 hover:shadow-lg transition-shadow animate-fade-in">
                 <CardContent className="p-6 flex items-center gap-6">
